@@ -1,6 +1,6 @@
 # `.claude/` — curated Claude Code assets for an Expo SDK 55 + React Native project
 
-This folder ships a React-Native-focused subset of [Everything Claude Code](https://github.com/everything-claude-code) (ECC). The full ECC plugin has 60 agents, 230 skills, 75 slash commands, and a deep hook stack — most of it is irrelevant to a React Native app (Swift / Kotlin / Flutter / Java / Django / FastAPI / etc.). This curated set keeps the context window slim and focused on mobile.
+This folder ships a React-Native-focused subset of [Everything Claude Code](https://github.com/affaan-m/everything-claude-code) (ECC). The full ECC plugin has 60 agents, 230 skills, 75 slash commands, and a deep hook stack — most of it is irrelevant to a React Native app (Swift / Kotlin / Flutter / Java / Django / FastAPI / etc.). This curated set keeps the context window slim and focused on mobile.
 
 ## Inventory
 
@@ -93,10 +93,14 @@ The guard matches:
 
 ## Adding more ECC assets
 
-Need something not curated? Copy directly from ECC:
+Need something not curated? Clone [Everything Claude Code](https://github.com/affaan-m/everything-claude-code) and copy what you need:
 
 ```bash
-ECC=/Users/dk/Documents/GitHub/everything-claude-code
+# One-time: clone ECC anywhere on disk
+git clone https://github.com/affaan-m/everything-claude-code.git ~/everything-claude-code
+
+# Then point ECC at your clone and copy assets in
+export ECC=~/everything-claude-code
 
 # A skill
 cp -R "$ECC/skills/<skill-name>" .claude/skills/
@@ -117,10 +121,10 @@ cp -R "$ECC/skills/kotlin-patterns" .claude/skills/
 cp -R "$ECC/skills/compose-multiplatform-patterns" .claude/skills/
 ```
 
-Or install ECC globally as a Claude Code plugin:
+Or install ECC as a Claude Code plugin:
 
 ```text
-/plugin marketplace add everything-claude-code/everything-claude-code
+/plugin marketplace add affaan-m/everything-claude-code
 /plugin install ecc
 ```
 

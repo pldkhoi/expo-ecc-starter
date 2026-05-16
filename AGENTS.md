@@ -101,11 +101,15 @@ Sequential when one agent's output feeds another (e.g., `code-architect` produce
 ## Adding more agents
 
 ```bash
-ECC=/Users/dk/Documents/GitHub/everything-claude-code
+# One-time: clone ECC anywhere on disk
+git clone https://github.com/affaan-m/everything-claude-code.git ~/everything-claude-code
+
+# Then copy agents in
+export ECC=~/everything-claude-code
 cp "$ECC/agents/<agent-name>.md" .claude/agents/
 ```
 
-ECC ships 60 agents total. Useful adds when you grow:
+[Everything Claude Code](https://github.com/affaan-m/everything-claude-code) ships 60+ agents total. Useful adds when you grow:
 
 - `database-reviewer` — when you add Prisma / Drizzle / Supabase
 - `network-architect` — when adding push notifications, WebSockets

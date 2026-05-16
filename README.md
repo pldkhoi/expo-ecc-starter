@@ -61,7 +61,9 @@ expo-ecc-starter/
 ├── eslint.config.js
 ├── metro.config.js
 ├── package.json
-└── tsconfig.json
+├── tsconfig.json
+└── .github/workflows/
+    └── ci.yml                # lint + type-check + test + security:scan
 ```
 
 ## Conventions
@@ -107,4 +109,4 @@ See [`.claude/skills/detox-e2e-patterns/SKILL.md`](.claude/skills/detox-e2e-patt
 
 ## License
 
-MIT — adapt freely.
+[MIT](LICENSE) — Copyright (c) 2026 Khoi Pham.

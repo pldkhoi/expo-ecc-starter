@@ -1,6 +1,6 @@
 # expo-ecc-starter — Claude Code project guide
 
-Expo SDK 55 (Expo Router 6) + React Native 0.83 + React 19 + TypeScript strict + Zustand 5 + Bun, wired with a React-Native-focused curation of [Everything Claude Code (ECC)](https://github.com/everything-claude-code) plugin assets and AgentShield for AI-agent security scanning.
+Expo SDK 55 (Expo Router 6) + React Native 0.83 + React 19 + TypeScript strict + Zustand 5 + Bun, wired with a React-Native-focused curation of [Everything Claude Code (ECC)](https://github.com/affaan-m/everything-claude-code) plugin assets and AgentShield for AI-agent security scanning.
 
 > See `AGENTS.md` for the Expo SDK 55 breaking-change notes (Expo Router 6, New Architecture default on, Hermes) that apply to every code-writing pass.
 
@@ -142,13 +142,17 @@ See `AGENTS.md` for the full agent roster and the per-agent "when to use" notes.
 
 ## Adding more ECC assets
 
-If you need a skill, agent, or command that wasn't curated into this starter, copy it from `/Users/dk/Documents/GitHub/everything-claude-code/` into `.claude/`:
+This starter ships a curated subset of [Everything Claude Code](https://github.com/affaan-m/everything-claude-code). When you need a skill, agent, or command that isn't here, clone ECC once and copy what you need:
 
 ```bash
-ECC=/Users/dk/Documents/GitHub/everything-claude-code
+# One-time: clone ECC anywhere on disk
+git clone https://github.com/affaan-m/everything-claude-code.git ~/everything-claude-code
+
+# Then point ECC at your clone and copy assets in
+export ECC=~/everything-claude-code
 cp -R "$ECC/skills/<skill-name>" .claude/skills/
 cp "$ECC/agents/<agent-name>.md" .claude/agents/
 cp "$ECC/commands/<command-name>.md" .claude/commands/
 ```
 
-Or install ECC as a Claude Code plugin (`/plugin marketplace add everything-claude-code` then `/plugin install ecc`) to get all 230 skills + 60 agents + 75 commands + full hook stack.
+Or install ECC as a Claude Code plugin (`/plugin marketplace add affaan-m/everything-claude-code` then `/plugin install ecc`) to get all 230+ skills, 60+ agents, and 75+ commands at once.
