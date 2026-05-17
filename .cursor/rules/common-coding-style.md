@@ -1,7 +1,8 @@
 ---
-description: "ECC: Coding style (immutability, KISS, DRY, YAGNI)"
+description: 'ECC: Coding style (immutability, KISS, DRY, YAGNI)'
 alwaysApply: true
 ---
+
 # Coding Style
 
 ## Immutability (CRITICAL)
@@ -39,6 +40,7 @@ Rationale: Immutable data prevents hidden side effects, makes debugging easier, 
 ## File Organization
 
 MANY SMALL FILES > FEW LARGE FILES:
+
 - High cohesion, low coupling
 - 200-400 lines typical, 800 max
 - Extract utilities from large modules
@@ -47,6 +49,7 @@ MANY SMALL FILES > FEW LARGE FILES:
 ## Error Handling
 
 ALWAYS handle errors comprehensively:
+
 - Handle errors explicitly at every level
 - Provide user-friendly error messages in UI-facing code
 - Log detailed error context on the server side
@@ -55,6 +58,7 @@ ALWAYS handle errors comprehensively:
 ## Input Validation
 
 ALWAYS validate at system boundaries:
+
 - Validate all user input before processing
 - Use schema-based validation where available
 - Fail fast with clear error messages
@@ -85,6 +89,7 @@ Split large functions into focused pieces with clear responsibilities.
 ## Code Quality Checklist
 
 Before marking work complete:
+
 - [ ] Code is readable and well-named
 - [ ] Functions are small (<50 lines)
 - [ ] Files are focused (<800 lines)

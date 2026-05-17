@@ -1,14 +1,19 @@
 ---
-description: "ECC: TypeScript patterns"
+description: 'ECC: TypeScript patterns'
 alwaysApply: true
 ---
+
 ---
+
 paths:
-  - "**/*.ts"
-  - "**/*.tsx"
-  - "**/*.js"
-  - "**/*.jsx"
+
+- "\*_/_.ts"
+- "\*_/_.tsx"
+- "\*_/_.js"
+- "\*_/_.jsx"
+
 ---
+
 # TypeScript/JavaScript Patterns
 
 > This file extends [common/patterns.md](../common/patterns.md) with TypeScript/JavaScript specific content.
@@ -17,14 +22,14 @@ paths:
 
 ```typescript
 interface ApiResponse<T> {
-  success: boolean
-  data?: T
-  error?: string
+  success: boolean;
+  data?: T;
+  error?: string;
   meta?: {
-    total: number
-    page: number
-    limit: number
-  }
+    total: number;
+    page: number;
+    limit: number;
+  };
 }
 ```
 
@@ -32,14 +37,14 @@ interface ApiResponse<T> {
 
 ```typescript
 export function useDebounce<T>(value: T, delay: number): T {
-  const [debouncedValue, setDebouncedValue] = useState<T>(value)
+  const [debouncedValue, setDebouncedValue] = useState<T>(value);
 
   useEffect(() => {
-    const handler = setTimeout(() => setDebouncedValue(value), delay)
-    return () => clearTimeout(handler)
-  }, [value, delay])
+    const handler = setTimeout(() => setDebouncedValue(value), delay);
+    return () => clearTimeout(handler);
+  }, [value, delay]);
 
-  return debouncedValue
+  return debouncedValue;
 }
 ```
 
@@ -47,10 +52,10 @@ export function useDebounce<T>(value: T, delay: number): T {
 
 ```typescript
 interface Repository<T> {
-  findAll(filters?: Filters): Promise<T[]>
-  findById(id: string): Promise<T | null>
-  create(data: CreateDto): Promise<T>
-  update(id: string, data: UpdateDto): Promise<T>
-  delete(id: string): Promise<void>
+  findAll(filters?: Filters): Promise<T[]>;
+  findById(id: string): Promise<T | null>;
+  create(data: CreateDto): Promise<T>;
+  update(id: string, data: UpdateDto): Promise<T>;
+  delete(id: string): Promise<void>;
 }
 ```

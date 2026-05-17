@@ -1,7 +1,8 @@
 ---
-description: "ECC: Mobile accessibility rules"
+description: 'ECC: Mobile accessibility rules'
 alwaysApply: true
 ---
+
 > This file extends [common/code-review.md](../common/code-review.md) with mobile accessibility rules. See skill `react-native-accessibility` for the deep guide.
 
 # Mobile accessibility rules

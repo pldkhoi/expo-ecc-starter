@@ -10,16 +10,16 @@ Expo Router 6 ships with SDK 55. Routes are file-based under `app/`. Everything 
 
 ## File conventions
 
-| File | Role |
-|---|---|
-| `app/_layout.tsx` | Root layout. Wraps `SafeAreaProvider`, providers, theme. |
-| `app/(group)/_layout.tsx` | Group layout. The parens are NOT in the URL. |
-| `app/index.tsx` | `/` |
-| `app/about.tsx` | `/about` |
-| `app/users/[id].tsx` | `/users/123` — dynamic single segment |
-| `app/blog/[...slug].tsx` | `/blog/a/b/c` — catch-all |
-| `app/+not-found.tsx` | 404 / unmatched route |
-| `app/+html.tsx` | Web-only HTML wrapper |
+| File                      | Role                                                     |
+| ------------------------- | -------------------------------------------------------- |
+| `app/_layout.tsx`         | Root layout. Wraps `SafeAreaProvider`, providers, theme. |
+| `app/(group)/_layout.tsx` | Group layout. The parens are NOT in the URL.             |
+| `app/index.tsx`           | `/`                                                      |
+| `app/about.tsx`           | `/about`                                                 |
+| `app/users/[id].tsx`      | `/users/123` — dynamic single segment                    |
+| `app/blog/[...slug].tsx`  | `/blog/a/b/c` — catch-all                                |
+| `app/+not-found.tsx`      | 404 / unmatched route                                    |
+| `app/+html.tsx`           | Web-only HTML wrapper                                    |
 
 ## Group layouts
 
@@ -49,8 +49,8 @@ Routes become type-safe:
 ```tsx
 import { Link, router } from 'expo-router';
 
-router.push('/users/[id]', { id: '123' });    // typed
-<Link href="/about">About</Link>;             // typed
+router.push('/users/[id]', { id: '123' }); // typed
+<Link href="/about">About</Link>; // typed
 ```
 
 `useLocalSearchParams<{ id: string }>()` returns typed params. ALWAYS narrow — params are strings; coerce with `Number()` or a schema.
@@ -60,6 +60,7 @@ router.push('/users/[id]', { id: '123' });    // typed
 Two ways:
 
 1. **Group layout**:
+
    ```tsx
    // app/(modal)/_layout.tsx
    import { Stack } from 'expo-router';
@@ -112,7 +113,9 @@ import { useEffect } from 'react';
 SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
-  const [loaded] = useFonts({ /* ... */ });
+  const [loaded] = useFonts({
+    /* ... */
+  });
 
   useEffect(() => {
     if (loaded) SplashScreen.hideAsync();
@@ -152,10 +155,10 @@ NEVER pass an unvalidated URL into a WebView.
 
 ## Anti-patterns
 
-| Issue | Why it fails |
-|---|---|
-| `useState` in `_layout.tsx` | Re-renders every child route. Use Zustand. |
-| Duplicated routes for web vs native | Maintenance burden. Use platform extensions only when behavior truly diverges. |
-| `useEffect(() => { router.push(...) }, [])` for redirect | Race against mount. Use `Stack.Protected` or set `initialRouteName`. |
-| Returning JSX from a `_layout.tsx` that wraps the `<Slot />` in something with padding | Padding affects every route. Hard to override. |
-| Treating `useLocalSearchParams` as typed without `experiments.typedRoutes` | Params are `string | string[] | undefined` — narrow explicitly. |
+| Issue                                                                                  | Why it fails                                                                   |
+| -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ | -------- | ------------------------------- |
+| `useState` in `_layout.tsx`                                                            | Re-renders every child route. Use Zustand.                                     |
+| Duplicated routes for web vs native                                                    | Maintenance burden. Use platform extensions only when behavior truly diverges. |
+| `useEffect(() => { router.push(...) }, [])` for redirect                               | Race against mount. Use `Stack.Protected` or set `initialRouteName`.           |
+| Returning JSX from a `_layout.tsx` that wraps the `<Slot />` in something with padding | Padding affects every route. Hard to override.                                 |
+| Treating `useLocalSearchParams` as typed without `experiments.typedRoutes`             | Params are `string                                                             | string[] | undefined` — narrow explicitly. |

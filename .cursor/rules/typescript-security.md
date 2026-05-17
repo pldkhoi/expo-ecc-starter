@@ -1,14 +1,19 @@
 ---
-description: "ECC: TypeScript security"
+description: 'ECC: TypeScript security'
 alwaysApply: true
 ---
+
 ---
+
 paths:
-  - "**/*.ts"
-  - "**/*.tsx"
-  - "**/*.js"
-  - "**/*.jsx"
+
+- "\*_/_.ts"
+- "\*_/_.tsx"
+- "\*_/_.js"
+- "\*_/_.jsx"
+
 ---
+
 # TypeScript/JavaScript Security
 
 > This file extends [common/security.md](../common/security.md) with TypeScript/JavaScript specific content.
@@ -17,13 +22,13 @@ paths:
 
 ```typescript
 // NEVER: Hardcoded secrets
-const apiKey = "sk-proj-xxxxx"
+const apiKey = 'sk-proj-xxxxx';
 
 // ALWAYS: Environment variables
-const apiKey = process.env.OPENAI_API_KEY
+const apiKey = process.env.OPENAI_API_KEY;
 
 if (!apiKey) {
-  throw new Error('OPENAI_API_KEY not configured')
+  throw new Error('OPENAI_API_KEY not configured');
 }
 ```
 

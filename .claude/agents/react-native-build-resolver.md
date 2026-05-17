@@ -2,7 +2,7 @@
 name: react-native-build-resolver
 description: Triage and resolve Expo / React Native build failures — Metro bundler errors, Reanimated babel-plugin issues, Expo prebuild conflicts, CocoaPods install failures, Android JDK / Gradle mismatches, EAS Build log spelunking, and SDK version drift.
 model: sonnet
-tools: ["Read", "Write", "Edit", "Bash", "Grep", "Glob"]
+tools: ['Read', 'Write', 'Edit', 'Bash', 'Grep', 'Glob']
 ---
 
 ## Prompt Defense Baseline
@@ -35,6 +35,7 @@ Unable to resolve module <name> from <path>
 ```
 
 Causes (in likelihood order):
+
 1. The module is not installed. → `bun add <name>` (or `bun add -D <name>` if it's a build dep).
 2. Cache stale after a `bun add`. → `npx expo start --clear`.
 3. The module is named differently than imported. → check `node_modules/<name>/package.json`.
@@ -78,14 +79,15 @@ WARNING: `--clean` deletes hand-edited native code. Confirm there's nothing impo
 
 Common failures:
 
-| Error | Fix |
-|---|---|
-| `pod install` hangs forever | `cd ios && pod install --repo-update`; check VPN / proxy interfering with the CDN. |
-| `Specs satisfying ... could not be found` | `cd ios && pod repo update` then retry. |
+| Error                                            | Fix                                                                                                                   |
+| ------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------- |
+| `pod install` hangs forever                      | `cd ios && pod install --repo-update`; check VPN / proxy interfering with the CDN.                                    |
+| `Specs satisfying ... could not be found`        | `cd ios && pod repo update` then retry.                                                                               |
 | `Could not find compatible versions for pod 'X'` | Library hasn't published a compatible version for the installed RN. Pin to a known-working version or remove the lib. |
-| `Sandbox is not in sync with the Podfile.lock` | `cd ios && pod install`. |
+| `Sandbox is not in sync with the Podfile.lock`   | `cd ios && pod install`.                                                                                              |
 
 Verify Xcode + CocoaPods versions:
+
 - Xcode ≥ 16 for SDK 55
 - `pod --version` ≥ 1.15
 
@@ -115,11 +117,13 @@ If `./gradlew` is missing: `cd android && gradle wrapper`.
 Some libraries don't yet support the New Architecture (`newArchEnabled: true` is default in SDK 55).
 
 Symptoms:
+
 - White screen on launch
 - "Invariant Violation: ViewManager for tag X" errors
 - A specific component crashes on render
 
 Workarounds (in order):
+
 1. Update the library to its latest version — newer releases often add New Arch support.
 2. Check the lib's GitHub issues for "new architecture" or "fabric".
 3. Temporary opt-out: flip `"newArchEnabled": false` in `app.json` and run `bun run prebuild:clean`. Document the reason in CHANGELOG so it's revisited.
@@ -135,6 +139,7 @@ grep -i "warning" build.log | wc -l        # quick noise estimate
 ```
 
 Common EAS-only failures:
+
 - **Missing credentials**: `eas credentials` → ensure iOS distribution cert + provisioning profile are present.
 - **Out of disk**: bump build profile resource class.
 - **Native module needs Xcode upgrade**: pin a known-good Xcode version in `eas.json` (`image: latest`).

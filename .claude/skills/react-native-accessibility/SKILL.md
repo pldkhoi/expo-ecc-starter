@@ -10,18 +10,18 @@ This skill is the reference for the mobile a11y API. For high-level architecture
 
 ## Props matrix
 
-| Prop | What it does | Required for |
-|---|---|---|
-| `accessible` | Marks the view as a single a11y element. Children are not exposed individually. | Grouping a card or row |
-| `accessibilityLabel` | Spoken name. Overrides children text. | Icon-only buttons, decorative-text overrides |
-| `accessibilityHint` | Spoken AFTER label. Use sparingly. | Non-obvious actions |
-| `accessibilityRole` | Semantic role. | EVERY interactive element |
-| `accessibilityState` | Dynamic state. | Disabled, selected, checked, expanded, busy |
-| `accessibilityValue` | Range / quantity. | Sliders, progress |
-| `accessibilityActions` + `onAccessibilityAction` | Custom verbs (activate, longpress, increment, decrement, escape, magicTap). | Custom controls |
-| `accessibilityElementsHidden` (iOS) | Hide subtree from VoiceOver. | Decorative wrappers / icons |
-| `importantForAccessibility` (Android) | `auto` / `yes` / `no` / `no-hide-descendants` | TalkBack visibility |
-| `accessibilityLiveRegion` (Android) | Announce updates: `none` / `polite` / `assertive`. | Toast-like surfaces |
+| Prop                                             | What it does                                                                    | Required for                                 |
+| ------------------------------------------------ | ------------------------------------------------------------------------------- | -------------------------------------------- |
+| `accessible`                                     | Marks the view as a single a11y element. Children are not exposed individually. | Grouping a card or row                       |
+| `accessibilityLabel`                             | Spoken name. Overrides children text.                                           | Icon-only buttons, decorative-text overrides |
+| `accessibilityHint`                              | Spoken AFTER label. Use sparingly.                                              | Non-obvious actions                          |
+| `accessibilityRole`                              | Semantic role.                                                                  | EVERY interactive element                    |
+| `accessibilityState`                             | Dynamic state.                                                                  | Disabled, selected, checked, expanded, busy  |
+| `accessibilityValue`                             | Range / quantity.                                                               | Sliders, progress                            |
+| `accessibilityActions` + `onAccessibilityAction` | Custom verbs (activate, longpress, increment, decrement, escape, magicTap).     | Custom controls                              |
+| `accessibilityElementsHidden` (iOS)              | Hide subtree from VoiceOver.                                                    | Decorative wrappers / icons                  |
+| `importantForAccessibility` (Android)            | `auto` / `yes` / `no` / `no-hide-descendants`                                   | TalkBack visibility                          |
+| `accessibilityLiveRegion` (Android)              | Announce updates: `none` / `polite` / `assertive`.                              | Toast-like surfaces                          |
 
 ## Roles cheat sheet
 
@@ -60,7 +60,7 @@ Works on both iOS and Android. Use for toast-like notifications, validation erro
 ```ts
 const reduceMotion = await AccessibilityInfo.isReduceMotionEnabled();
 if (reduceMotion) {
-  setOpacity(1);                  // jump to final state
+  setOpacity(1); // jump to final state
 } else {
   opacity.value = withTiming(1, { duration: 200 });
 }
@@ -83,7 +83,11 @@ useEffect(() => {
   if (handle != null) AccessibilityInfo.setAccessibilityFocus(handle);
 }, []);
 
-return <Text ref={titleRef} accessibilityRole="header">Profile</Text>;
+return (
+  <Text ref={titleRef} accessibilityRole="header">
+    Profile
+  </Text>
+);
 ```
 
 ## Grouping
@@ -94,7 +98,11 @@ return <Text ref={titleRef} accessibilityRole="header">Profile</Text>;
   accessibilityRole="button"
   accessibilityLabel={`${article.title}, by ${article.author}, ${article.minutes} minute read`}
 >
-  <Image source={article.cover} accessibilityElementsHidden importantForAccessibility="no-hide-descendants" />
+  <Image
+    source={article.cover}
+    accessibilityElementsHidden
+    importantForAccessibility="no-hide-descendants"
+  />
   <Text>{article.title}</Text>
   <Text>{article.author}</Text>
   <Text>{article.minutes} min</Text>
@@ -121,12 +129,12 @@ Locate by role + accessible name. If you can't find the element this way, your a
 
 ## Anti-patterns
 
-| Issue | Why it fails |
-|---|---|
-| `accessibilityLabel` repeating visible text verbatim | Redundant for sighted-with-screen-reader; OK if visible text is non-semantic (e.g., emoji). |
-| `accessibilityHint` repeating the label | TalkBack reads both; slow. |
-| Nested `accessible={true}` wrappers | Creates two focus stops; VoiceOver hits both. |
-| `<View accessibilityRole="button">` without a Pressable | Announces "button" but tap does nothing. |
-| Hiding interactive children with `accessibilityElementsHidden` | They become unreachable. Hide decorative children only. |
-| Forgetting `accessibilityState.disabled` on a disabled Pressable | VoiceOver says "button" — user taps, nothing happens, no feedback. |
-| Using `aria-label` (web ARIA) instead of `accessibilityLabel` | Web prop, ignored in native. |
+| Issue                                                            | Why it fails                                                                                |
+| ---------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `accessibilityLabel` repeating visible text verbatim             | Redundant for sighted-with-screen-reader; OK if visible text is non-semantic (e.g., emoji). |
+| `accessibilityHint` repeating the label                          | TalkBack reads both; slow.                                                                  |
+| Nested `accessible={true}` wrappers                              | Creates two focus stops; VoiceOver hits both.                                               |
+| `<View accessibilityRole="button">` without a Pressable          | Announces "button" but tap does nothing.                                                    |
+| Hiding interactive children with `accessibilityElementsHidden`   | They become unreachable. Hide decorative children only.                                     |
+| Forgetting `accessibilityState.disabled` on a disabled Pressable | VoiceOver says "button" — user taps, nothing happens, no feedback.                          |
+| Using `aria-label` (web ARIA) instead of `accessibilityLabel`    | Web prop, ignored in native.                                                                |

@@ -1,7 +1,8 @@
 ---
-description: "ECC: Zustand state rules"
+description: 'ECC: Zustand state rules'
 alwaysApply: true
 ---
+
 > This file extends [common/patterns.md](../common/patterns.md) with Zustand state-management rules for React Native.
 
 # Zustand state rules

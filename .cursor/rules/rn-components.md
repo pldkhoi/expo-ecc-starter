@@ -1,7 +1,8 @@
 ---
-description: "ECC: React Native component rules"
+description: 'ECC: React Native component rules'
 alwaysApply: true
 ---
+
 > This file extends [common/patterns.md](../common/patterns.md) with React Native component rules.
 
 # React Native component rules

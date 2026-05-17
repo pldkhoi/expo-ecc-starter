@@ -1,10 +1,11 @@
 ---
 paths:
-  - "**/*.ts"
-  - "**/*.tsx"
-  - "**/*.js"
-  - "**/*.jsx"
+  - '**/*.ts'
+  - '**/*.tsx'
+  - '**/*.js'
+  - '**/*.jsx'
 ---
+
 # TypeScript/JavaScript Testing
 
 > This file extends [common/testing.md](../common/testing.md) with TypeScript/JavaScript specific content. For React Native specifics, see also [react-native/testing.md](../react-native/testing.md).

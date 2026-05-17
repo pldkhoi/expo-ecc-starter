@@ -152,7 +152,7 @@ import { useCounterStore } from '@/stores/counter-store';
 const initial = useCounterStore.getState();
 
 beforeEach(() => {
-  useCounterStore.setState(initial, true);  // second arg = replace, not merge
+  useCounterStore.setState(initial, true); // second arg = replace, not merge
 });
 ```
 
@@ -167,19 +167,19 @@ test('increment bumps count by 1', () => {
 
 ## When NOT to use Zustand
 
-| Concern | Use instead |
-|---|---|
+| Concern                         | Use instead                                                                         |
+| ------------------------------- | ----------------------------------------------------------------------------------- |
 | Server state (fetched from API) | TanStack Query / SWR — Zustand stores can't refetch, dedupe, or cache by query key. |
-| Form state | React Hook Form + Zod |
-| URL state (filters, pagination) | `useLocalSearchParams` + `router.setParams` |
-| Theme (read-only computed) | Plain context or `useColorScheme` |
+| Form state                      | React Hook Form + Zod                                                               |
+| URL state (filters, pagination) | `useLocalSearchParams` + `router.setParams`                                         |
+| Theme (read-only computed)      | Plain context or `useColorScheme`                                                   |
 
 ## Anti-patterns
 
-| Anti-pattern | Why it fails |
-|---|---|
-| Destructuring whole store | Re-renders on every state change |
+| Anti-pattern                                                                | Why it fails                                            |
+| --------------------------------------------------------------------------- | ------------------------------------------------------- |
+| Destructuring whole store                                                   | Re-renders on every state change                        |
 | Mutating state inside `set` callback (`set((s) => { s.x = 1; return s; })`) | Zustand expects a new object; mutation breaks selectors |
-| Storing fetched data + loading flag in Zustand | Reinvents TanStack Query badly |
-| Auth token in AsyncStorage (not SecureStore) | Plain-text on disk |
-| Multiple stores reading each other's state inside selectors | Subscribe race conditions; derive in components instead |
+| Storing fetched data + loading flag in Zustand                              | Reinvents TanStack Query badly                          |
+| Auth token in AsyncStorage (not SecureStore)                                | Plain-text on disk                                      |
+| Multiple stores reading each other's state inside selectors                 | Subscribe race conditions; derive in components instead |

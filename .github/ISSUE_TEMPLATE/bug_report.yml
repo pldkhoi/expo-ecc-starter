@@ -1,0 +1,92 @@
+name: Bug report
+description: Something is not working as expected.
+title: '[Bug]: '
+labels: ['bug', 'triage']
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for filing a bug report. Please fill in the details below so we can reproduce and fix it quickly.
+
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      description: A clear and concise description of the bug.
+      placeholder: When I tap the sign-in button on Android, the app crashes...
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to reproduce
+      description: Minimal reproduction. A link to a repo is ideal.
+      placeholder: |
+        1. `bun install`
+        2. `bun dev` then press `a`
+        3. Navigate to /(auth)/sign-in
+        4. Tap Sign in
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      placeholder: The user should be navigated to /(tabs).
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+      placeholder: 'App crashes with TypeError: Cannot read property of undefined'
+    validations:
+      required: true
+
+  - type: input
+    id: expo-sdk
+    attributes:
+      label: Expo SDK version
+      placeholder: '55.0.0'
+    validations:
+      required: true
+
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      multiple: true
+      options:
+        - iOS Simulator
+        - iOS device
+        - Android Emulator
+        - Android device
+        - Web
+    validations:
+      required: true
+
+  - type: input
+    id: device
+    attributes:
+      label: Device / OS version
+      placeholder: 'iPhone 15 Pro, iOS 18.2'
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: Paste relevant Metro / device logs. Strip secrets.
+      render: shell
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Pre-flight
+      options:
+        - label: I have searched existing issues and could not find a duplicate.
+          required: true
+        - label: I have removed all secrets from logs and reproduction.
+          required: true

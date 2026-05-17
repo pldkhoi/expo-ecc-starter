@@ -19,15 +19,15 @@ The four pillars apply to mobile too:
 
 ## Platform-specific reference
 
-| Topic | iOS | Android |
-|---|---|---|
-| Screen reader | VoiceOver | TalkBack |
-| Focus property | `accessibilityElementsHidden` | `importantForAccessibility` |
-| Live region | (Use `AccessibilityInfo.announceForAccessibility`) | `accessibilityLiveRegion` |
-| Min touch target | 44 × 44 pt | 48 × 48 dp |
-| Custom roles | `accessibilityRole` + traits via `accessibilityValue.text` | `accessibilityRole` |
-| Reduce Motion | Settings → Accessibility → Motion → Reduce Motion | Settings → Accessibility → Remove animations |
-| Test tool | Accessibility Inspector (Xcode) | Accessibility Scanner (Play Store app) |
+| Topic            | iOS                                                        | Android                                      |
+| ---------------- | ---------------------------------------------------------- | -------------------------------------------- |
+| Screen reader    | VoiceOver                                                  | TalkBack                                     |
+| Focus property   | `accessibilityElementsHidden`                              | `importantForAccessibility`                  |
+| Live region      | (Use `AccessibilityInfo.announceForAccessibility`)         | `accessibilityLiveRegion`                    |
+| Min touch target | 44 × 44 pt                                                 | 48 × 48 dp                                   |
+| Custom roles     | `accessibilityRole` + traits via `accessibilityValue.text` | `accessibilityRole`                          |
+| Reduce Motion    | Settings → Accessibility → Motion → Reduce Motion          | Settings → Accessibility → Remove animations |
+| Test tool        | Accessibility Inspector (Xcode)                            | Accessibility Scanner (Play Store app)       |
 
 ## Quick checklist (per screen)
 
@@ -46,10 +46,10 @@ The four pillars apply to mobile too:
 
 ## Anti-patterns (mobile)
 
-| Issue | Fix |
-|---|---|
-| Icon-only `Pressable` with no label | Add `accessibilityLabel="Close modal"` |
-| `aria-label="..."` left over from web port | Replace with `accessibilityLabel="..."` |
+| Issue                                                   | Fix                                                      |
+| ------------------------------------------------------- | -------------------------------------------------------- |
+| Icon-only `Pressable` with no label                     | Add `accessibilityLabel="Close modal"`                   |
+| `aria-label="..."` left over from web port              | Replace with `accessibilityLabel="..."`                  |
 | Color-only state indicator (e.g., red border for error) | Pair with icon + `accessibilityState.invalid` / announce |
-| Two nested `accessible={true}` wrappers | Pick one; the inner one wins by default |
-| Reanimated transition without Reduce Motion gate | Gate before kicking off `withTiming` |
+| Two nested `accessible={true}` wrappers                 | Pick one; the inner one wins by default                  |
+| Reanimated transition without Reduce Motion gate        | Gate before kicking off `withTiming`                     |

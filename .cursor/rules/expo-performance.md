@@ -1,7 +1,8 @@
 ---
-description: "ECC: Expo / React Native performance rules"
+description: 'ECC: Expo / React Native performance rules'
 alwaysApply: true
 ---
+
 > This file extends [common/performance.md](../common/performance.md) with Expo / React Native performance rules.
 
 # Expo / React Native performance rules

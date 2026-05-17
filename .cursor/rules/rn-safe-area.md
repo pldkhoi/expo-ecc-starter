@@ -1,7 +1,8 @@
 ---
-description: "ECC: Safe area rules"
+description: 'ECC: Safe area rules'
 alwaysApply: true
 ---
+
 > This file extends [common/coding-style.md](../common/coding-style.md) with safe-area rules. See skill `safe-area-patterns` for the deep guide.
 
 # Safe area rules

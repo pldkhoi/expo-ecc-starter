@@ -58,8 +58,7 @@ const SECRET_PREFIX_RE =
 const LONG_TOKEN_RE = /[A-Za-z0-9_\-]{40,}/;
 const SECRET_WORD_RE =
   /\b(secret|service[_-]?role|private[_-]?key|jwt[_-]?secret|api[_-]?key|password)\b/i;
-const ASSIGN_RE =
-  /EXPO_PUBLIC_[A-Z0-9_]+\s*[:=]\s*['"`]?([^'"`\r\n,;}]+?)['"`]?(?=[\r\n,;}]|$)/gm;
+const ASSIGN_RE = /EXPO_PUBLIC_[A-Z0-9_]+\s*[:=]\s*['"`]?([^'"`\r\n,;}]+?)['"`]?(?=[\r\n,;}]|$)/gm;
 const ALLOWLIST_TAIL_RE =
   /^(true|false|null|undefined|[0-9]+(\.[0-9]+)?|http:\/\/[^\s]+|https?:\/\/[^\s]+)$/i;
 const PLACEHOLDER_TAIL_RE =

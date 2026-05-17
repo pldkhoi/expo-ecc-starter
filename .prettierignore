@@ -1,0 +1,16 @@
+node_modules/
+.expo/
+dist/
+ios/
+android/
+coverage/
+.agentshield/
+artifacts/
+bun.lock
+package-lock.json
+yarn.lock
+*.tsbuildinfo
+.DS_Store
+.cursor/
+.claude/worktrees/
+.claude/sessions/
