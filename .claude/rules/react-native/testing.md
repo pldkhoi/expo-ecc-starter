@@ -33,7 +33,12 @@
 
 ```tsx
 const wrapper = ({ children }: { children: React.ReactNode }) => (
-  <SafeAreaProvider initialMetrics={{ frame: { x: 0, y: 0, width: 390, height: 844 }, insets: { top: 47, bottom: 34, left: 0, right: 0 } }}>
+  <SafeAreaProvider
+    initialMetrics={{
+      frame: { x: 0, y: 0, width: 390, height: 844 },
+      insets: { top: 47, bottom: 34, left: 0, right: 0 },
+    }}
+  >
     {children}
   </SafeAreaProvider>
 );

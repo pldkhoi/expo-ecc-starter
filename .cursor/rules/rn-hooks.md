@@ -1,7 +1,8 @@
 ---
-description: "ECC: React Native hook rules"
+description: 'ECC: React Native hook rules'
 alwaysApply: true
 ---
+
 > This file extends [common/coding-style.md](../common/coding-style.md) with React Native hook rules.
 
 # React Native hook rules

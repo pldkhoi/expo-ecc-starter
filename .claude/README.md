@@ -32,31 +32,31 @@ See `../AGENTS.md` for orchestration chains. Quick list:
 
 ### Skills (22) — `skills/`
 
-| Skill | Source | Notes |
-|---|---|---|
-| `accessibility/` | rewritten | Mobile-first entry; links to deep guides |
-| `react-native-accessibility/` | new | Full a11y props matrix + iOS/Android specifics |
-| `react-native-performance/` | new | FlatList, memoization, expo-image, Reanimated, Hermes |
-| `expo-router-patterns/` | new | File-based routes, typed routes, deep links, modals |
-| `zustand-store-patterns/` | new | Selectors mandatory, SecureStore-backed persist |
-| `safe-area-patterns/` | new | Root provider once, useSafeAreaInsets preferred |
-| `expo-secure-store/` | new | Token storage, Keychain / EncryptedSharedPrefs, migration |
-| `detox-e2e-patterns/` | new | Detox setup, selectors, flake handling, vs Maestro |
-| `api-design/` | ECC | REST patterns (when adding a backend) |
-| `api-connector-builder/` | ECC | Third-party API integration |
-| `architecture-decision-records/` | ECC | ADR workflow |
-| `agent-architecture-audit/` | ECC | Audit your AI-agent harness |
-| `coding-standards/` | ECC | Generic standards |
-| `error-handling/` | ECC | Typed errors, retries, circuit breakers |
-| `tdd-workflow/` | ECC | TDD discipline |
-| `verification-loop/` | ECC | Verification gates after a change |
-| `security-review/` | ECC | Security review checklist |
-| `security-scan/` | ECC | AgentShield workflow |
-| `frontend-patterns/` | ECC | Generic frontend patterns |
-| `design-system/` | ECC | Design system principles |
-| `bun-runtime/` | ECC | Bun-specific patterns |
-| `git-workflow/` | ECC | Git best practices |
-| `documentation-lookup/` | ECC | Doc lookup workflow |
+| Skill                            | Source    | Notes                                                     |
+| -------------------------------- | --------- | --------------------------------------------------------- |
+| `accessibility/`                 | rewritten | Mobile-first entry; links to deep guides                  |
+| `react-native-accessibility/`    | new       | Full a11y props matrix + iOS/Android specifics            |
+| `react-native-performance/`      | new       | FlatList, memoization, expo-image, Reanimated, Hermes     |
+| `expo-router-patterns/`          | new       | File-based routes, typed routes, deep links, modals       |
+| `zustand-store-patterns/`        | new       | Selectors mandatory, SecureStore-backed persist           |
+| `safe-area-patterns/`            | new       | Root provider once, useSafeAreaInsets preferred           |
+| `expo-secure-store/`             | new       | Token storage, Keychain / EncryptedSharedPrefs, migration |
+| `detox-e2e-patterns/`            | new       | Detox setup, selectors, flake handling, vs Maestro        |
+| `api-design/`                    | ECC       | REST patterns (when adding a backend)                     |
+| `api-connector-builder/`         | ECC       | Third-party API integration                               |
+| `architecture-decision-records/` | ECC       | ADR workflow                                              |
+| `agent-architecture-audit/`      | ECC       | Audit your AI-agent harness                               |
+| `coding-standards/`              | ECC       | Generic standards                                         |
+| `error-handling/`                | ECC       | Typed errors, retries, circuit breakers                   |
+| `tdd-workflow/`                  | ECC       | TDD discipline                                            |
+| `verification-loop/`             | ECC       | Verification gates after a change                         |
+| `security-review/`               | ECC       | Security review checklist                                 |
+| `security-scan/`                 | ECC       | AgentShield workflow                                      |
+| `frontend-patterns/`             | ECC       | Generic frontend patterns                                 |
+| `design-system/`                 | ECC       | Design system principles                                  |
+| `bun-runtime/`                   | ECC       | Bun-specific patterns                                     |
+| `git-workflow/`                  | ECC       | Git best practices                                        |
+| `documentation-lookup/`          | ECC       | Doc lookup workflow                                       |
 
 ### Rules — `rules/`
 

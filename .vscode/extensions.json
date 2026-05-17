@@ -1,0 +1,12 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "expo.vscode-expo-tools",
+    "editorconfig.editorconfig",
+    "redhat.vscode-yaml",
+    "orta.vscode-jest",
+    "anthropic.claude-code"
+  ],
+  "unwantedRecommendations": []
+}

@@ -1,7 +1,8 @@
 ---
-description: "ECC: Expo Router 6 conventions"
+description: 'ECC: Expo Router 6 conventions'
 alwaysApply: true
 ---
+
 > This file extends [common/coding-style.md](../common/coding-style.md) with Expo Router 6 conventions.
 
 # Expo Router 6 conventions

@@ -22,17 +22,17 @@ All three return Promises. All three can throw — handle errors.
 
 ## When to use
 
-| Data | Storage |
-|---|---|
-| Auth access token | SecureStore |
-| Auth refresh token | SecureStore |
-| Session cookie / ID | SecureStore |
-| OAuth client secret (mobile-only flows) | SecureStore |
-| User email, phone, address | SecureStore |
-| Theme preference | AsyncStorage |
-| Last-opened tab | AsyncStorage |
-| Recent search queries | AsyncStorage (if non-PII) |
-| Cached API response | AsyncStorage / TanStack Query persister |
+| Data                                    | Storage                                 |
+| --------------------------------------- | --------------------------------------- |
+| Auth access token                       | SecureStore                             |
+| Auth refresh token                      | SecureStore                             |
+| Session cookie / ID                     | SecureStore                             |
+| OAuth client secret (mobile-only flows) | SecureStore                             |
+| User email, phone, address              | SecureStore                             |
+| Theme preference                        | AsyncStorage                            |
+| Last-opened tab                         | AsyncStorage                            |
+| Recent search queries                   | AsyncStorage (if non-PII)               |
+| Cached API response                     | AsyncStorage / TanStack Query persister |
 
 If you're unsure, use SecureStore — the cost is a 2-byte difference in read latency.
 
@@ -79,7 +79,7 @@ export const useAuthStore = create<AuthState>()(
 ```ts
 await SecureStore.setItemAsync('refresh_token', token, {
   keychainAccessible: SecureStore.WHEN_UNLOCKED_THIS_DEVICE_ONLY,
-  requireAuthentication: false,        // true = Face ID / fingerprint required to read
+  requireAuthentication: false, // true = Face ID / fingerprint required to read
 });
 ```
 
@@ -126,11 +126,11 @@ If you persist with Zustand `persist`, also clear the store: `useAuthStore.getSt
 
 ## Anti-patterns
 
-| Anti-pattern | Why it fails |
-|---|---|
-| `AsyncStorage.setItem('token', t)` for a JWT | Plain-text on disk; root / debug bridge reads it |
-| Storing a 50 KB encrypted blob | Keychain becomes a perf bottleneck on read |
-| `requireAuthentication: true` on every read | User Face-IDs constantly; abandons the app |
-| Forgetting to clear on logout | Next user inherits the previous account's tokens |
-| Logging the result of `getItemAsync` | Token in stack trace / Sentry breadcrumb |
+| Anti-pattern                                                | Why it fails                                         |
+| ----------------------------------------------------------- | ---------------------------------------------------- |
+| `AsyncStorage.setItem('token', t)` for a JWT                | Plain-text on disk; root / debug bridge reads it     |
+| Storing a 50 KB encrypted blob                              | Keychain becomes a perf bottleneck on read           |
+| `requireAuthentication: true` on every read                 | User Face-IDs constantly; abandons the app           |
+| Forgetting to clear on logout                               | Next user inherits the previous account's tokens     |
+| Logging the result of `getItemAsync`                        | Token in stack trace / Sentry breadcrumb             |
 | `await SecureStore.getItemAsync(...)` with no `try / catch` | Throws on first-run before the key exists; UI breaks |

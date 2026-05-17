@@ -12,23 +12,23 @@
 
 ## Roster (15 agents)
 
-| Agent | Purpose | When to use |
-|---|---|---|
-| `planner` | Implementation planning | Complex features, refactors, anything beyond a 2-file change |
-| `code-architect` | System design | Choosing between approaches, drawing boundaries between modules |
-| `code-explorer` | Read and explain code | Onboarding to an unfamiliar area, debugging where you don't know where to start |
-| `code-reviewer` (mobile-tuned) | Code quality + RN/Expo anti-patterns | After writing or modifying any `.ts` / `.tsx`, before staging |
-| `typescript-reviewer` | TypeScript-specific issues | Strict-mode violations, type narrowing, generics |
-| `a11y-architect` (mobile-tuned) | iOS / Android a11y | Any new touchable, screen, list, modal, animated transition |
-| `e2e-runner` (mobile-tuned) | Maestro-first / Detox fallback E2E | Critical user flows, auth, deep links, navigation |
-| `performance-optimizer` (mobile-tuned) | JS / UI thread, FlatList, Hermes, bundle | Jank, slow cold start, scroll stutters, bundle bloat |
-| `security-reviewer` (mobile-tuned) | Mobile-first then OWASP | Before commits touching auth, tokens, WebView, permissions, native modules, deep links |
-| `tdd-guide` | RED → GREEN → REFACTOR | New features, bug fixes, refactors |
-| `refactor-cleaner` | Dead code removal | Maintenance passes; only YOUR changes' dead code |
-| `doc-updater` | Doc maintenance | Updating CLAUDE.md, AGENTS.md, README, CHANGELOG |
-| `docs-lookup` | Find docs for a library / API | When the task references a third-party API |
-| `silent-failure-hunter` | Catch errors that don't throw | Unexpected behavior with no error in logs |
-| `react-native-build-resolver` (new) | Metro / Expo prebuild / EAS / Reanimated / JDK / Pods triage | Build is broken |
+| Agent                                  | Purpose                                                      | When to use                                                                            |
+| -------------------------------------- | ------------------------------------------------------------ | -------------------------------------------------------------------------------------- |
+| `planner`                              | Implementation planning                                      | Complex features, refactors, anything beyond a 2-file change                           |
+| `code-architect`                       | System design                                                | Choosing between approaches, drawing boundaries between modules                        |
+| `code-explorer`                        | Read and explain code                                        | Onboarding to an unfamiliar area, debugging where you don't know where to start        |
+| `code-reviewer` (mobile-tuned)         | Code quality + RN/Expo anti-patterns                         | After writing or modifying any `.ts` / `.tsx`, before staging                          |
+| `typescript-reviewer`                  | TypeScript-specific issues                                   | Strict-mode violations, type narrowing, generics                                       |
+| `a11y-architect` (mobile-tuned)        | iOS / Android a11y                                           | Any new touchable, screen, list, modal, animated transition                            |
+| `e2e-runner` (mobile-tuned)            | Maestro-first / Detox fallback E2E                           | Critical user flows, auth, deep links, navigation                                      |
+| `performance-optimizer` (mobile-tuned) | JS / UI thread, FlatList, Hermes, bundle                     | Jank, slow cold start, scroll stutters, bundle bloat                                   |
+| `security-reviewer` (mobile-tuned)     | Mobile-first then OWASP                                      | Before commits touching auth, tokens, WebView, permissions, native modules, deep links |
+| `tdd-guide`                            | RED → GREEN → REFACTOR                                       | New features, bug fixes, refactors                                                     |
+| `refactor-cleaner`                     | Dead code removal                                            | Maintenance passes; only YOUR changes' dead code                                       |
+| `doc-updater`                          | Doc maintenance                                              | Updating CLAUDE.md, AGENTS.md, README, CHANGELOG                                       |
+| `docs-lookup`                          | Find docs for a library / API                                | When the task references a third-party API                                             |
+| `silent-failure-hunter`                | Catch errors that don't throw                                | Unexpected behavior with no error in logs                                              |
+| `react-native-build-resolver` (new)    | Metro / Expo prebuild / EAS / Reanimated / JDK / Pods triage | Build is broken                                                                        |
 
 ## Orchestration chains
 

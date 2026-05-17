@@ -1,0 +1,33 @@
+appId: com.eccstarter.expo
+name: smoke
+tags:
+  - smoke
+  - auth
+---
+- launchApp:
+    clearState: true
+- assertVisible: 'Welcome back'
+- assertVisible: 'Sign in'
+
+# Sign in with mock credentials
+- tapOn: 'Email'
+- inputText: 'alice@example.com'
+- hideKeyboard
+- tapOn: 'Password'
+- inputText: 'password123'
+- hideKeyboard
+- tapOn:
+    text: 'Sign in'
+    index: 1
+
+# Authenticated home
+- assertVisible: 'Home'
+- assertVisible: 'Settings'
+
+# Sign out from Settings tab
+- tapOn: 'Settings'
+- assertVisible: 'Sign out'
+- tapOn: 'Sign out'
+
+# Back to unauthenticated state
+- assertVisible: 'Welcome back'

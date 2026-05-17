@@ -4,6 +4,46 @@ All notable changes to this project are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.3.0] - 2026-05-17
+
+### Added
+
+- **Interactive setup script** (`scripts/init-template.ts`) — rebrand the project in one command: name, slug, bundle IDs, scheme, primary color, optional git reset.
+- **Theme system** (`src/theme/theme.ts`, `src/theme/theme-provider.tsx`, `src/hooks/use-theme.ts`) — typed theme tokens (colors, spacing, radii, fontSizes, fontWeights) with light / dark / system preference persisted in AsyncStorage.
+- **Auth scaffold** (mock) — `src/lib/secure-storage.ts` (cross-platform expo-secure-store wrapper), `src/stores/auth-store.ts` (Zustand + persist), `app/(auth)/sign-in.tsx` and `app/(auth)/sign-up.tsx` (RHF + Zod), root-level `Stack.Protected` guard in `app/_layout.tsx`.
+- **UI primitives** — `src/components/ui/{Button,Card,Input,Spinner}.tsx` with variants, sizes, accessibility props, 48dp+ touch targets.
+- **Icons** — `src/components/icons.ts` re-exporting curated `lucide-react-native` icons for tree-shaking.
+- **ErrorBoundary** (`src/components/error-boundary.tsx`) — dev red-box / prod friendly fallback, retry action.
+- **Modal example** (`app/(modal)/example.tsx`) — demonstrates `presentation: 'modal'` + `router.dismiss()`.
+- **Settings screen** (`app/(tabs)/settings.tsx`) — theme toggle, sign out, modal link, version.
+- **API client** (`src/lib/api.ts`) — fetch wrapper with timeout, typed `ApiError`, auto Bearer token, opt-out via `withAuth: false`.
+- **TanStack Query 5 + persisted cache** — `src/lib/query-client.ts`, `src/providers/query-provider.tsx`, sample hook `src/hooks/use-pokemon.ts`.
+- **React Hook Form + Zod** — `src/lib/validation.ts` with shared `signInSchema` / `signUpSchema`.
+- **Test infrastructure** — `jest.config.js`, `jest.setup.ts`, `__mocks__/expo-secure-store.ts`, `src/test-utils/render.tsx` (`renderWithProviders` helper). Coverage threshold seeded at 60%.
+- **Sample tests** — Button, auth-store, api, validation, format-date, use-theme, sign-in screen.
+- **Maestro smoke flow** — `.maestro/smoke.yaml` covers launch → sign in → tabs → sign out.
+- **husky + lint-staged** pre-commit (`eslint --fix` + `prettier --write` on staged files).
+- **IDE configs** — `.vscode/{settings,extensions}.json`, `.editorconfig`.
+- **GitHub hygiene** — issue templates (bug, feature), PR template, `dependabot.yml` with grouped weekly updates.
+- **Community files** — `CONTRIBUTING.md`, `SECURITY.md`, `CODE_OF_CONDUCT.md`.
+- **Docs** — `docs/{ARCHITECTURE,SETUP,TESTING,RELEASING,DECISIONS}.md`.
+
+### Changed
+
+- `app/_layout.tsx` now wraps the tree in `GestureHandlerRootView → ErrorBoundary → SafeAreaProvider → ThemeProvider → QueryProvider` and uses `Stack.Protected` for auth gating.
+- `app/(tabs)/_layout.tsx` swaps placeholder tab colors for theme tokens and adds lucide icons.
+- `app/(tabs)/index.tsx` rewritten as a feature-tour home screen.
+- `app/+not-found.tsx` polished with themed Button.
+- `src/components/{ThemedText,ThemedView}.tsx` switched from `useThemeColor` to `useTheme()`.
+- `src/hooks/use-color-scheme.ts` now delegates to the theme provider.
+- `package.json` — extracted Jest config to `jest.config.js`, added scripts (`init`, `format`, `format:check`, `test:coverage`, `e2e:maestro`, `clean`, `prepare`), `lint-staged` config, deps for TanStack Query, RHF, Zod, lucide, AsyncStorage, husky, lint-staged.
+- `.github/workflows/ci.yml` adds `format:check` step and uploads coverage as a CI artifact.
+- `README.md` rewritten as a template-focused boilerplate guide.
+
+### Removed
+
+- `src/stores/counter-store.ts` and `app/(tabs)/explore.tsx` — replaced by richer sample code (auth flow, settings, modal).
+
 ## [0.2.0] - 2026-05-17
 
 ### Added

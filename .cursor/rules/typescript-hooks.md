@@ -1,14 +1,19 @@
 ---
-description: "ECC: TypeScript hook conventions"
+description: 'ECC: TypeScript hook conventions'
 alwaysApply: true
 ---
+
 ---
+
 paths:
-  - "**/*.ts"
-  - "**/*.tsx"
-  - "**/*.js"
-  - "**/*.jsx"
+
+- "\*_/_.ts"
+- "\*_/_.tsx"
+- "\*_/_.js"
+- "\*_/_.jsx"
+
 ---
+
 # TypeScript/JavaScript Hooks
 
 > This file extends [common/hooks.md](../common/hooks.md) with TypeScript/JavaScript specific content.

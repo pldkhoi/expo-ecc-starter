@@ -34,11 +34,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 export default function Screen() {
   const insets = useSafeAreaInsets();
-  return (
-    <View style={{ paddingTop: insets.top, paddingBottom: insets.bottom, flex: 1 }}>
-      ...
-    </View>
-  );
+  return <View style={{ paddingTop: insets.top, paddingBottom: insets.bottom, flex: 1 }}>...</View>;
 }
 ```
 
@@ -51,7 +47,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 <SafeAreaView edges={['top']} style={{ flex: 1 }}>
   ...
-</SafeAreaView>
+</SafeAreaView>;
 ```
 
 Pros: concise. Cons: nesting two `SafeAreaView`s double-pads silently; less ergonomic when only one edge is needed.
@@ -60,11 +56,11 @@ Pros: concise. Cons: nesting two `SafeAreaView`s double-pads silently; less ergo
 
 ## Per-edge guidance
 
-| Edge | Apply when |
-|---|---|
-| `top` | Screen has its own header (no Expo Router header). Skip when `headerShown: true`. |
-| `bottom` | Screen has no tab bar AND no Stack header. Edge-to-edge Android nav uses this. |
-| `left` / `right` | Landscape + iPad. Rarely needed in portrait phone-only apps. |
+| Edge             | Apply when                                                                        |
+| ---------------- | --------------------------------------------------------------------------------- |
+| `top`            | Screen has its own header (no Expo Router header). Skip when `headerShown: true`. |
+| `bottom`         | Screen has no tab bar AND no Stack header. Edge-to-edge Android nav uses this.    |
+| `left` / `right` | Landscape + iPad. Rarely needed in portrait phone-only apps.                      |
 
 A screen inside a Tabs layout usually only needs `top`; the tab bar handles `bottom`.
 
@@ -104,7 +100,7 @@ const insets = useSafeAreaInsets();
   style={{ flex: 1 }}
 >
   ...
-</KeyboardAvoidingView>
+</KeyboardAvoidingView>;
 ```
 
 On Android, the soft keyboard already pushes content via `android:windowSoftInputMode="adjustResize"` (Expo default), so `behavior={undefined}` is correct.
@@ -124,7 +120,12 @@ import { render } from '@testing-library/react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 
 const wrap = (ui: React.ReactElement) => (
-  <SafeAreaProvider initialMetrics={{ frame: { x: 0, y: 0, width: 390, height: 844 }, insets: { top: 47, bottom: 34, left: 0, right: 0 } }}>
+  <SafeAreaProvider
+    initialMetrics={{
+      frame: { x: 0, y: 0, width: 390, height: 844 },
+      insets: { top: 47, bottom: 34, left: 0, right: 0 },
+    }}
+  >
     {ui}
   </SafeAreaProvider>
 );
@@ -138,10 +139,10 @@ test('renders with iPhone 15 insets', () => {
 
 ## Anti-patterns
 
-| Anti-pattern | Why it fails |
-|---|---|
-| Two `SafeAreaProvider` wrappers (root + modal) | Modal child reads inner provider, which has stale insets |
-| `<SafeAreaView edges={['top','bottom']}>` inside a `<Tabs>` | Doubles the bottom padding (Tabs already handles it) |
-| Hard-coding 44 / 47 / 34 for status bar / notch / home indicator | Wrong on Dynamic Island devices and Android |
-| Skipping `paddingBottom: insets.bottom` on edge-to-edge Android | Gesture nav overlaps the UI |
-| `useSafeAreaInsets()` called in a non-Provider tree | Returns `{ top: 0, bottom: 0, left: 0, right: 0 }` silently |
+| Anti-pattern                                                     | Why it fails                                                |
+| ---------------------------------------------------------------- | ----------------------------------------------------------- |
+| Two `SafeAreaProvider` wrappers (root + modal)                   | Modal child reads inner provider, which has stale insets    |
+| `<SafeAreaView edges={['top','bottom']}>` inside a `<Tabs>`      | Doubles the bottom padding (Tabs already handles it)        |
+| Hard-coding 44 / 47 / 34 for status bar / notch / home indicator | Wrong on Dynamic Island devices and Android                 |
+| Skipping `paddingBottom: insets.bottom` on edge-to-edge Android  | Gesture nav overlaps the UI                                 |
+| `useSafeAreaInsets()` called in a non-Provider tree              | Returns `{ top: 0, bottom: 0, left: 0, right: 0 }` silently |

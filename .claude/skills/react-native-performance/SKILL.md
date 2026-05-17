@@ -21,12 +21,12 @@ Measure first. Don't optimize without a number.
 <FlatList
   data={items}
   keyExtractor={(item) => item.id}
-  renderItem={renderItem}                    // defined OUTSIDE the screen body
-  getItemLayout={getItemLayout}              // when row height is constant
+  renderItem={renderItem} // defined OUTSIDE the screen body
+  getItemLayout={getItemLayout} // when row height is constant
   initialNumToRender={10}
-  windowSize={5}                             // default 21 is overkill
+  windowSize={5} // default 21 is overkill
   maxToRenderPerBatch={5}
-  removeClippedSubviews                      // android default true; iOS opt-in
+  removeClippedSubviews // android default true; iOS opt-in
 />
 ```
 
@@ -83,7 +83,7 @@ import { Image } from 'expo-image';
   cachePolicy="memory-disk"
   placeholder={{ blurhash }}
   transition={150}
-/>
+/>;
 ```
 
 Benefits over RN `Image`: shared cache, blurhash placeholder, content-fit semantics, faster decode.
@@ -129,6 +129,7 @@ du -sh dist/_expo/static/js
 ```
 
 Tactics:
+
 - Import named, not default: `import { format } from 'date-fns'`.
 - Replace heavy libs: `moment` → `date-fns` or local helper.
 - Avoid `lodash/*` whole import; use per-function: `import sortBy from 'lodash/sortBy'`.
@@ -145,12 +146,12 @@ Aim for sustained ≥ 55 fps on both during the worst-case interaction (long scr
 
 ## Anti-patterns
 
-| Anti-pattern | Fix |
-|---|---|
-| Inline style object in render | Hoist to `StyleSheet.create` |
+| Anti-pattern                       | Fix                                              |
+| ---------------------------------- | ------------------------------------------------ |
+| Inline style object in render      | Hoist to `StyleSheet.create`                     |
 | Anonymous `renderItem` in FlatList | Define outside or `useCallback` with stable deps |
-| Animated value in `useState` | `useSharedValue` |
-| `setNativeProps` in a loop | Batch with `requestAnimationFrame` |
-| Full-state Zustand subscribe | Use selectors |
-| `Image` with no cache policy | `expo-image` with `cachePolicy="memory-disk"` |
-| `console.log` in release | Wrap in `if (__DEV__)` |
+| Animated value in `useState`       | `useSharedValue`                                 |
+| `setNativeProps` in a loop         | Batch with `requestAnimationFrame`               |
+| Full-state Zustand subscribe       | Use selectors                                    |
+| `Image` with no cache policy       | `expo-image` with `cachePolicy="memory-disk"`    |
+| `console.log` in release           | Wrap in `if (__DEV__)`                           |

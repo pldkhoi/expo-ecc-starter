@@ -1,14 +1,19 @@
 ---
-description: "ECC: TypeScript testing"
+description: 'ECC: TypeScript testing'
 alwaysApply: true
 ---
+
 ---
+
 paths:
-  - "**/*.ts"
-  - "**/*.tsx"
-  - "**/*.js"
-  - "**/*.jsx"
+
+- "\*_/_.ts"
+- "\*_/_.tsx"
+- "\*_/_.js"
+- "\*_/_.jsx"
+
 ---
+
 # TypeScript/JavaScript Testing
 
 > This file extends [common/testing.md](../common/testing.md) with TypeScript/JavaScript specific content.

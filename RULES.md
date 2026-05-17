@@ -48,13 +48,13 @@
 
 Mobile-specific rules that complement the cross-platform ones above. Each links to its file under `.claude/rules/`.
 
-| Rule | File | One-line summary |
-|---|---|---|
-| Components | [react-native/components.md](.claude/rules/react-native/components.md) | Pressable preferred; FlatList over ScrollView; StyleSheet.create for reused styles |
-| Hooks | [react-native/hooks.md](.claude/rules/react-native/hooks.md) | `use-` prefix kebab-case file; subscription cleanup mandatory; measure before memoizing |
-| State (Zustand) | [react-native/state-zustand.md](.claude/rules/react-native/state-zustand.md) | One store per domain; selectors mandatory; SecureStore-backed persist for tokens |
-| Accessibility | [react-native/accessibility.md](.claude/rules/react-native/accessibility.md) | Every touchable carries role + label; 44pt iOS / 48dp Android; announce status updates |
-| Safe area | [react-native/safe-area.md](.claude/rules/react-native/safe-area.md) | One root SafeAreaProvider; useSafeAreaInsets preferred over SafeAreaView component |
-| Testing | [react-native/testing.md](.claude/rules/react-native/testing.md) | Jest + @testing-library/react-native; locate by role; fake timers for animations |
-| Expo Router | [expo/expo-router.md](.claude/rules/expo/expo-router.md) | File-based routes; typed routes on; Stack.Protected for auth; no state in _layout |
-| Expo perf | [expo/performance.md](.claude/rules/expo/performance.md) | Hermes on; New Arch on; expo-image; FlatList tuning; bundle < 2 MB gzipped |
+| Rule            | File                                                                         | One-line summary                                                                        |
+| --------------- | ---------------------------------------------------------------------------- | --------------------------------------------------------------------------------------- |
+| Components      | [react-native/components.md](.claude/rules/react-native/components.md)       | Pressable preferred; FlatList over ScrollView; StyleSheet.create for reused styles      |
+| Hooks           | [react-native/hooks.md](.claude/rules/react-native/hooks.md)                 | `use-` prefix kebab-case file; subscription cleanup mandatory; measure before memoizing |
+| State (Zustand) | [react-native/state-zustand.md](.claude/rules/react-native/state-zustand.md) | One store per domain; selectors mandatory; SecureStore-backed persist for tokens        |
+| Accessibility   | [react-native/accessibility.md](.claude/rules/react-native/accessibility.md) | Every touchable carries role + label; 44pt iOS / 48dp Android; announce status updates  |
+| Safe area       | [react-native/safe-area.md](.claude/rules/react-native/safe-area.md)         | One root SafeAreaProvider; useSafeAreaInsets preferred over SafeAreaView component      |
+| Testing         | [react-native/testing.md](.claude/rules/react-native/testing.md)             | Jest + @testing-library/react-native; locate by role; fake timers for animations        |
+| Expo Router     | [expo/expo-router.md](.claude/rules/expo/expo-router.md)                     | File-based routes; typed routes on; Stack.Protected for auth; no state in \_layout      |
+| Expo perf       | [expo/performance.md](.claude/rules/expo/performance.md)                     | Hermes on; New Arch on; expo-image; FlatList tuning; bundle < 2 MB gzipped              |
