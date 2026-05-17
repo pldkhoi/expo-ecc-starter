@@ -8,6 +8,7 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
 ### Added
 
+- **`bun security:scan:full`** — full AgentShield report including informational findings. `bun security:scan` now defaults to `--min-severity high` so CI does not gate on ECC 2.0 metadata recommendations or false-positive flag scans on the deny list.
 - **Interactive setup script** (`scripts/init-template.ts`) — rebrand the project in one command: name, slug, bundle IDs, scheme, primary color, optional git reset.
 - **Theme system** (`src/theme/theme.ts`, `src/theme/theme-provider.tsx`, `src/hooks/use-theme.ts`) — typed theme tokens (colors, spacing, radii, fontSizes, fontWeights) with light / dark / system preference persisted in AsyncStorage.
 - **Auth scaffold** (mock) — `src/lib/secure-storage.ts` (cross-platform expo-secure-store wrapper), `src/stores/auth-store.ts` (Zustand + persist), `app/(auth)/sign-in.tsx` and `app/(auth)/sign-up.tsx` (RHF + Zod), root-level `Stack.Protected` guard in `app/_layout.tsx`.
