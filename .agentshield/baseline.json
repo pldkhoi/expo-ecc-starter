@@ -1,0 +1,531 @@
+{
+  "version": 1,
+  "timestamp": "2026-05-17T05:40:17.153Z",
+  "score": {
+    "grade": "C",
+    "numericScore": 71,
+    "breakdown": {
+      "secrets": 100,
+      "permissions": 54,
+      "hooks": 100,
+      "mcp": 100,
+      "agents": 0
+    }
+  },
+  "findings": [
+    {
+      "id": "permissions-dangerous-1487",
+      "severity": "critical",
+      "category": "permissions",
+      "title": "Dangerous flag: --no-verify",
+      "file": "settings.json",
+      "evidence": "--no-verify",
+      "fingerprint": "permissions-dangerous-1487::settings.json::--no-verify"
+    },
+    {
+      "id": "permissions-missing-deny-chmod-777",
+      "severity": "medium",
+      "category": "permissions",
+      "title": "Missing deny rule: World-writable permissions",
+      "file": "settings.json",
+      "fingerprint": "permissions-missing-deny-chmod-777::settings.json::"
+    },
+    {
+      "id": "permissions-missing-deny-ssh",
+      "severity": "medium",
+      "category": "permissions",
+      "title": "Missing deny rule: SSH connections from agent",
+      "file": "settings.json",
+      "fingerprint": "permissions-missing-deny-ssh::settings.json::"
+    },
+    {
+      "id": "permissions-missing-deny->-/dev/",
+      "severity": "medium",
+      "category": "permissions",
+      "title": "Missing deny rule: Writing to device files",
+      "file": "settings.json",
+      "fingerprint": "permissions-missing-deny->-/dev/::settings.json::"
+    },
+    {
+      "id": "agents-oversized-prompt-agents/a11y-architect.md",
+      "severity": "medium",
+      "category": "agents",
+      "title": "Agent definition effective size is 6695 characters (>5000 threshold)",
+      "file": "agents/a11y-architect.md",
+      "evidence": "6695 effective characters (13447 raw)",
+      "fingerprint": "agents-oversized-prompt-agents/a11y-architect.md::agents/a11y-architect.md::6695 effective characters (13447 raw)"
+    },
+    {
+      "id": "agents-bash-access-agents/code-architect.md",
+      "severity": "medium",
+      "category": "agents",
+      "title": "Agent has Bash access: agents/code-architect.md",
+      "file": "agents/code-architect.md",
+      "fingerprint": "agents-bash-access-agents/code-architect.md::agents/code-architect.md::"
+    },
+    {
+      "id": "agents-bash-access-agents/code-reviewer.md",
+      "severity": "medium",
+      "category": "agents",
+      "title": "Agent has Bash access: agents/code-reviewer.md",
+      "file": "agents/code-reviewer.md",
+      "fingerprint": "agents-bash-access-agents/code-reviewer.md::agents/code-reviewer.md::"
+    },
+    {
+      "id": "agents-escalation-chain-agents/code-reviewer.md",
+      "severity": "medium",
+      "category": "agents",
+      "title": "Agent has full escalation chain: agents/code-reviewer.md",
+      "file": "agents/code-reviewer.md",
+      "evidence": "Discovery: Grep, Glob + Read + Write: Write, Edit + Bash",
+      "fingerprint": "agents-escalation-chain-agents/code-reviewer.md::agents/code-reviewer.md::Discovery: Grep, Glob + Read + Write: Write, Edit + Bash"
+    },
+    {
+      "id": "agents-oversized-prompt-agents/code-reviewer.md",
+      "severity": "medium",
+      "category": "agents",
+      "title": "Agent definition effective size is 5555 characters (>5000 threshold)",
+      "file": "agents/code-reviewer.md",
+      "evidence": "5555 effective characters (8165 raw)",
+      "fingerprint": "agents-oversized-prompt-agents/code-reviewer.md::agents/code-reviewer.md::5555 effective characters (8165 raw)"
+    },
+    {
+      "id": "agents-bash-access-agents/doc-updater.md",
+      "severity": "medium",
+      "category": "agents",
+      "title": "Agent has Bash access: agents/doc-updater.md",
+      "file": "agents/doc-updater.md",
+      "fingerprint": "agents-bash-access-agents/doc-updater.md::agents/doc-updater.md::"
+    },
+    {
+      "id": "agents-escalation-chain-agents/doc-updater.md",
+      "severity": "medium",
+      "category": "agents",
+      "title": "Agent has full escalation chain: agents/doc-updater.md",
+      "file": "agents/doc-updater.md",
+      "evidence": "Discovery: Grep, Glob + Read + Write: Write, Edit + Bash",
+      "fingerprint": "agents-escalation-chain-agents/doc-updater.md::agents/doc-updater.md::Discovery: Grep, Glob + Read + Write: Write, Edit + Bash"
+    },
+    {
+      "id": "agents-bash-access-agents/e2e-runner.md",
+      "severity": "medium",
+      "category": "agents",
+      "title": "Agent has Bash access: agents/e2e-runner.md",
+      "file": "agents/e2e-runner.md",
+      "fingerprint": "agents-bash-access-agents/e2e-runner.md::agents/e2e-runner.md::"
+    },
+    {
+      "id": "agents-escalation-chain-agents/e2e-runner.md",
+      "severity": "medium",
+      "category": "agents",
+      "title": "Agent has full escalation chain: agents/e2e-runner.md",
+      "file": "agents/e2e-runner.md",
+      "evidence": "Discovery: Grep, Glob + Read + Write: Write, Edit + Bash",
+      "fingerprint": "agents-escalation-chain-agents/e2e-runner.md::agents/e2e-runner.md::Discovery: Grep, Glob + Read + Write: Write, Edit + Bash"
+    },
+    {
+      "id": "agents-bash-access-agents/performance-optimizer.md",
+      "severity": "medium",
+      "category": "agents",
+      "title": "Agent has Bash access: agents/performance-optimizer.md",
+      "file": "agents/performance-optimizer.md",
+      "fingerprint": "agents-bash-access-agents/performance-optimizer.md::agents/performance-optimizer.md::"
+    },
+    {
+      "id": "agents-escalation-chain-agents/performance-optimizer.md",
+      "severity": "medium",
+      "category": "agents",
+      "title": "Agent has full escalation chain: agents/performance-optimizer.md",
+      "file": "agents/performance-optimizer.md",
+      "evidence": "Discovery: Grep, Glob + Read + Write: Write, Edit + Bash",
+      "fingerprint": "agents-escalation-chain-agents/performance-optimizer.md::agents/performance-optimizer.md::Discovery: Grep, Glob + Read + Write: Write, Edit + Bash"
+    },
+    {
+      "id": "agents-bash-access-agents/react-native-build-resolver.md",
+      "severity": "medium",
+      "category": "agents",
+      "title": "Agent has Bash access: agents/react-native-build-resolver.md",
+      "file": "agents/react-native-build-resolver.md",
+      "fingerprint": "agents-bash-access-agents/react-native-build-resolver.md::agents/react-native-build-resolver.md::"
+    },
+    {
+      "id": "agents-escalation-chain-agents/react-native-build-resolver.md",
+      "severity": "medium",
+      "category": "agents",
+      "title": "Agent has full escalation chain: agents/react-native-build-resolver.md",
+      "file": "agents/react-native-build-resolver.md",
+      "evidence": "Discovery: Grep, Glob + Read + Write: Write, Edit + Bash",
+      "fingerprint": "agents-escalation-chain-agents/react-native-build-resolver.md::agents/react-native-build-resolver.md::Discovery: Grep, Glob + Read + Write: Write, Edit + Bash"
+    },
+    {
+      "id": "agents-bash-access-agents/refactor-cleaner.md",
+      "severity": "medium",
+      "category": "agents",
+      "title": "Agent has Bash access: agents/refactor-cleaner.md",
+      "file": "agents/refactor-cleaner.md",
+      "fingerprint": "agents-bash-access-agents/refactor-cleaner.md::agents/refactor-cleaner.md::"
+    },
+    {
+      "id": "agents-escalation-chain-agents/refactor-cleaner.md",
+      "severity": "medium",
+      "category": "agents",
+      "title": "Agent has full escalation chain: agents/refactor-cleaner.md",
+      "file": "agents/refactor-cleaner.md",
+      "evidence": "Discovery: Grep, Glob + Read + Write: Write, Edit + Bash",
+      "fingerprint": "agents-escalation-chain-agents/refactor-cleaner.md::agents/refactor-cleaner.md::Discovery: Grep, Glob + Read + Write: Write, Edit + Bash"
+    },
+    {
+      "id": "agents-bash-access-agents/security-reviewer.md",
+      "severity": "medium",
+      "category": "agents",
+      "title": "Agent has Bash access: agents/security-reviewer.md",
+      "file": "agents/security-reviewer.md",
+      "fingerprint": "agents-bash-access-agents/security-reviewer.md::agents/security-reviewer.md::"
+    },
+    {
+      "id": "agents-oversized-prompt-agents/security-reviewer.md",
+      "severity": "medium",
+      "category": "agents",
+      "title": "Agent definition effective size is 7534 characters (>5000 threshold)",
+      "file": "agents/security-reviewer.md",
+      "evidence": "7534 effective characters (7779 raw)",
+      "fingerprint": "agents-oversized-prompt-agents/security-reviewer.md::agents/security-reviewer.md::7534 effective characters (7779 raw)"
+    },
+    {
+      "id": "agents-bash-access-agents/silent-failure-hunter.md",
+      "severity": "medium",
+      "category": "agents",
+      "title": "Agent has Bash access: agents/silent-failure-hunter.md",
+      "file": "agents/silent-failure-hunter.md",
+      "fingerprint": "agents-bash-access-agents/silent-failure-hunter.md::agents/silent-failure-hunter.md::"
+    },
+    {
+      "id": "agents-bash-access-agents/tdd-guide.md",
+      "severity": "medium",
+      "category": "agents",
+      "title": "Agent has Bash access: agents/tdd-guide.md",
+      "file": "agents/tdd-guide.md",
+      "fingerprint": "agents-bash-access-agents/tdd-guide.md::agents/tdd-guide.md::"
+    },
+    {
+      "id": "agents-escalation-chain-agents/tdd-guide.md",
+      "severity": "medium",
+      "category": "agents",
+      "title": "Agent has full escalation chain: agents/tdd-guide.md",
+      "file": "agents/tdd-guide.md",
+      "evidence": "Discovery: Grep + Read + Write: Write, Edit + Bash",
+      "fingerprint": "agents-escalation-chain-agents/tdd-guide.md::agents/tdd-guide.md::Discovery: Grep + Read + Write: Write, Edit + Bash"
+    },
+    {
+      "id": "agents-bash-access-agents/typescript-reviewer.md",
+      "severity": "medium",
+      "category": "agents",
+      "title": "Agent has Bash access: agents/typescript-reviewer.md",
+      "file": "agents/typescript-reviewer.md",
+      "fingerprint": "agents-bash-access-agents/typescript-reviewer.md::agents/typescript-reviewer.md::"
+    },
+    {
+      "id": "agents-oversized-prompt-agents/typescript-reviewer.md",
+      "severity": "medium",
+      "category": "agents",
+      "title": "Agent definition effective size is 8097 characters (>5000 threshold)",
+      "file": "agents/typescript-reviewer.md",
+      "evidence": "8097 effective characters (8674 raw)",
+      "fingerprint": "agents-oversized-prompt-agents/typescript-reviewer.md::agents/typescript-reviewer.md::8097 effective characters (8674 raw)"
+    },
+    {
+      "id": "hooks-no-stop-hooks",
+      "severity": "low",
+      "category": "misconfiguration",
+      "title": "No Stop hooks for session-end verification",
+      "file": "settings.json",
+      "fingerprint": "hooks-no-stop-hooks::settings.json::"
+    },
+    {
+      "id": "agents-expensive-readonly-agents/code-explorer.md",
+      "severity": "low",
+      "category": "misconfiguration",
+      "title": "Read-only agent uses expensive model \"sonnet\": agents/code-explorer.md",
+      "file": "agents/code-explorer.md",
+      "fingerprint": "agents-expensive-readonly-agents/code-explorer.md::agents/code-explorer.md::"
+    },
+    {
+      "id": "agents-expensive-readonly-agents/planner.md",
+      "severity": "low",
+      "category": "misconfiguration",
+      "title": "Read-only agent uses expensive model \"opus\": agents/planner.md",
+      "file": "agents/planner.md",
+      "fingerprint": "agents-expensive-readonly-agents/planner.md::agents/planner.md::"
+    },
+    {
+      "id": "skills-missing-telemetry-commands/aside.md",
+      "severity": "low",
+      "category": "skills",
+      "title": "Example config: Skill is missing observation hooks and feedback hooks",
+      "file": "commands/aside.md",
+      "evidence": "observation hooks and feedback hooks",
+      "fingerprint": "skills-missing-telemetry-commands/aside.md::commands/aside.md::observation hooks and feedback hooks"
+    },
+    {
+      "id": "skills-missing-governance-commands/aside.md",
+      "severity": "low",
+      "category": "skills",
+      "title": "Example config: Skill is missing version metadata and rollback metadata",
+      "file": "commands/aside.md",
+      "evidence": "version metadata and rollback metadata",
+      "fingerprint": "skills-missing-governance-commands/aside.md::commands/aside.md::version metadata and rollback metadata"
+    },
+    {
+      "id": "skills-missing-telemetry-commands/auto-update.md",
+      "severity": "low",
+      "category": "skills",
+      "title": "Example config: Skill is missing observation hooks and feedback hooks",
+      "file": "commands/auto-update.md",
+      "evidence": "observation hooks and feedback hooks",
+      "fingerprint": "skills-missing-telemetry-commands/auto-update.md::commands/auto-update.md::observation hooks and feedback hooks"
+    },
+    {
+      "id": "skills-missing-governance-commands/auto-update.md",
+      "severity": "low",
+      "category": "skills",
+      "title": "Example config: Skill is missing version metadata and rollback metadata",
+      "file": "commands/auto-update.md",
+      "evidence": "version metadata and rollback metadata",
+      "fingerprint": "skills-missing-governance-commands/auto-update.md::commands/auto-update.md::version metadata and rollback metadata"
+    },
+    {
+      "id": "skills-missing-telemetry-commands/build-fix.md",
+      "severity": "low",
+      "category": "skills",
+      "title": "Example config: Skill is missing observation hooks and feedback hooks",
+      "file": "commands/build-fix.md",
+      "evidence": "observation hooks and feedback hooks",
+      "fingerprint": "skills-missing-telemetry-commands/build-fix.md::commands/build-fix.md::observation hooks and feedback hooks"
+    },
+    {
+      "id": "skills-missing-governance-commands/build-fix.md",
+      "severity": "low",
+      "category": "skills",
+      "title": "Example config: Skill is missing version metadata and rollback metadata",
+      "file": "commands/build-fix.md",
+      "evidence": "version metadata and rollback metadata",
+      "fingerprint": "skills-missing-governance-commands/build-fix.md::commands/build-fix.md::version metadata and rollback metadata"
+    },
+    {
+      "id": "skills-missing-telemetry-commands/checkpoint.md",
+      "severity": "low",
+      "category": "skills",
+      "title": "Example config: Skill is missing observation hooks and feedback hooks",
+      "file": "commands/checkpoint.md",
+      "evidence": "observation hooks and feedback hooks",
+      "fingerprint": "skills-missing-telemetry-commands/checkpoint.md::commands/checkpoint.md::observation hooks and feedback hooks"
+    },
+    {
+      "id": "skills-missing-governance-commands/checkpoint.md",
+      "severity": "low",
+      "category": "skills",
+      "title": "Example config: Skill is missing version metadata and rollback metadata",
+      "file": "commands/checkpoint.md",
+      "evidence": "version metadata and rollback metadata",
+      "fingerprint": "skills-missing-governance-commands/checkpoint.md::commands/checkpoint.md::version metadata and rollback metadata"
+    },
+    {
+      "id": "skills-missing-telemetry-commands/code-review.md",
+      "severity": "low",
+      "category": "skills",
+      "title": "Example config: Skill is missing observation hooks and feedback hooks",
+      "file": "commands/code-review.md",
+      "evidence": "observation hooks and feedback hooks",
+      "fingerprint": "skills-missing-telemetry-commands/code-review.md::commands/code-review.md::observation hooks and feedback hooks"
+    },
+    {
+      "id": "skills-missing-governance-commands/code-review.md",
+      "severity": "low",
+      "category": "skills",
+      "title": "Example config: Skill is missing version metadata and rollback metadata",
+      "file": "commands/code-review.md",
+      "evidence": "version metadata and rollback metadata",
+      "fingerprint": "skills-missing-governance-commands/code-review.md::commands/code-review.md::version metadata and rollback metadata"
+    },
+    {
+      "id": "skills-missing-telemetry-commands/cost-report.md",
+      "severity": "low",
+      "category": "skills",
+      "title": "Example config: Skill is missing observation hooks and feedback hooks",
+      "file": "commands/cost-report.md",
+      "evidence": "observation hooks and feedback hooks",
+      "fingerprint": "skills-missing-telemetry-commands/cost-report.md::commands/cost-report.md::observation hooks and feedback hooks"
+    },
+    {
+      "id": "skills-missing-governance-commands/cost-report.md",
+      "severity": "low",
+      "category": "skills",
+      "title": "Example config: Skill is missing version metadata and rollback metadata",
+      "file": "commands/cost-report.md",
+      "evidence": "version metadata and rollback metadata",
+      "fingerprint": "skills-missing-governance-commands/cost-report.md::commands/cost-report.md::version metadata and rollback metadata"
+    },
+    {
+      "id": "skills-missing-telemetry-commands/ecc-guide.md",
+      "severity": "low",
+      "category": "skills",
+      "title": "Example config: Skill is missing observation hooks and feedback hooks",
+      "file": "commands/ecc-guide.md",
+      "evidence": "observation hooks and feedback hooks",
+      "fingerprint": "skills-missing-telemetry-commands/ecc-guide.md::commands/ecc-guide.md::observation hooks and feedback hooks"
+    },
+    {
+      "id": "skills-missing-governance-commands/ecc-guide.md",
+      "severity": "low",
+      "category": "skills",
+      "title": "Example config: Skill is missing version metadata and rollback metadata",
+      "file": "commands/ecc-guide.md",
+      "evidence": "version metadata and rollback metadata",
+      "fingerprint": "skills-missing-governance-commands/ecc-guide.md::commands/ecc-guide.md::version metadata and rollback metadata"
+    },
+    {
+      "id": "skills-missing-telemetry-commands/feature-dev.md",
+      "severity": "low",
+      "category": "skills",
+      "title": "Example config: Skill is missing observation hooks and feedback hooks",
+      "file": "commands/feature-dev.md",
+      "evidence": "observation hooks and feedback hooks",
+      "fingerprint": "skills-missing-telemetry-commands/feature-dev.md::commands/feature-dev.md::observation hooks and feedback hooks"
+    },
+    {
+      "id": "skills-missing-governance-commands/feature-dev.md",
+      "severity": "low",
+      "category": "skills",
+      "title": "Example config: Skill is missing version metadata and rollback metadata",
+      "file": "commands/feature-dev.md",
+      "evidence": "version metadata and rollback metadata",
+      "fingerprint": "skills-missing-governance-commands/feature-dev.md::commands/feature-dev.md::version metadata and rollback metadata"
+    },
+    {
+      "id": "skills-missing-telemetry-commands/harness-audit.md",
+      "severity": "low",
+      "category": "skills",
+      "title": "Example config: Skill is missing observation hooks and feedback hooks",
+      "file": "commands/harness-audit.md",
+      "evidence": "observation hooks and feedback hooks",
+      "fingerprint": "skills-missing-telemetry-commands/harness-audit.md::commands/harness-audit.md::observation hooks and feedback hooks"
+    },
+    {
+      "id": "skills-missing-governance-commands/harness-audit.md",
+      "severity": "low",
+      "category": "skills",
+      "title": "Example config: Skill is missing version metadata and rollback metadata",
+      "file": "commands/harness-audit.md",
+      "evidence": "version metadata and rollback metadata",
+      "fingerprint": "skills-missing-governance-commands/harness-audit.md::commands/harness-audit.md::version metadata and rollback metadata"
+    },
+    {
+      "id": "skills-missing-telemetry-commands/learn.md",
+      "severity": "low",
+      "category": "skills",
+      "title": "Example config: Skill is missing observation hooks and feedback hooks",
+      "file": "commands/learn.md",
+      "evidence": "observation hooks and feedback hooks",
+      "fingerprint": "skills-missing-telemetry-commands/learn.md::commands/learn.md::observation hooks and feedback hooks"
+    },
+    {
+      "id": "skills-missing-governance-commands/learn.md",
+      "severity": "low",
+      "category": "skills",
+      "title": "Example config: Skill is missing version metadata and rollback metadata",
+      "file": "commands/learn.md",
+      "evidence": "version metadata and rollback metadata",
+      "fingerprint": "skills-missing-governance-commands/learn.md::commands/learn.md::version metadata and rollback metadata"
+    },
+    {
+      "id": "skills-missing-telemetry-commands/plan.md",
+      "severity": "low",
+      "category": "skills",
+      "title": "Example config: Skill is missing observation hooks and feedback hooks",
+      "file": "commands/plan.md",
+      "evidence": "observation hooks and feedback hooks",
+      "fingerprint": "skills-missing-telemetry-commands/plan.md::commands/plan.md::observation hooks and feedback hooks"
+    },
+    {
+      "id": "skills-missing-governance-commands/plan.md",
+      "severity": "low",
+      "category": "skills",
+      "title": "Example config: Skill is missing version metadata and rollback metadata",
+      "file": "commands/plan.md",
+      "evidence": "version metadata and rollback metadata",
+      "fingerprint": "skills-missing-governance-commands/plan.md::commands/plan.md::version metadata and rollback metadata"
+    },
+    {
+      "id": "skills-missing-telemetry-commands/refactor-clean.md",
+      "severity": "low",
+      "category": "skills",
+      "title": "Example config: Skill is missing observation hooks and feedback hooks",
+      "file": "commands/refactor-clean.md",
+      "evidence": "observation hooks and feedback hooks",
+      "fingerprint": "skills-missing-telemetry-commands/refactor-clean.md::commands/refactor-clean.md::observation hooks and feedback hooks"
+    },
+    {
+      "id": "skills-missing-governance-commands/refactor-clean.md",
+      "severity": "low",
+      "category": "skills",
+      "title": "Example config: Skill is missing version metadata and rollback metadata",
+      "file": "commands/refactor-clean.md",
+      "evidence": "version metadata and rollback metadata",
+      "fingerprint": "skills-missing-governance-commands/refactor-clean.md::commands/refactor-clean.md::version metadata and rollback metadata"
+    },
+    {
+      "id": "skills-missing-telemetry-commands/security-scan.md",
+      "severity": "low",
+      "category": "skills",
+      "title": "Example config: Skill is missing observation hooks and feedback hooks",
+      "file": "commands/security-scan.md",
+      "evidence": "observation hooks and feedback hooks",
+      "fingerprint": "skills-missing-telemetry-commands/security-scan.md::commands/security-scan.md::observation hooks and feedback hooks"
+    },
+    {
+      "id": "skills-missing-governance-commands/security-scan.md",
+      "severity": "low",
+      "category": "skills",
+      "title": "Example config: Skill is missing version metadata and rollback metadata",
+      "file": "commands/security-scan.md",
+      "evidence": "version metadata and rollback metadata",
+      "fingerprint": "skills-missing-governance-commands/security-scan.md::commands/security-scan.md::version metadata and rollback metadata"
+    },
+    {
+      "id": "skills-missing-telemetry-commands/skill-create.md",
+      "severity": "low",
+      "category": "skills",
+      "title": "Example config: Skill is missing observation hooks and feedback hooks",
+      "file": "commands/skill-create.md",
+      "evidence": "observation hooks and feedback hooks",
+      "fingerprint": "skills-missing-telemetry-commands/skill-create.md::commands/skill-create.md::observation hooks and feedback hooks"
+    },
+    {
+      "id": "skills-missing-governance-commands/skill-create.md",
+      "severity": "low",
+      "category": "skills",
+      "title": "Example config: Skill is missing version metadata and rollback metadata",
+      "file": "commands/skill-create.md",
+      "evidence": "version metadata and rollback metadata",
+      "fingerprint": "skills-missing-governance-commands/skill-create.md::commands/skill-create.md::version metadata and rollback metadata"
+    },
+    {
+      "id": "skills-missing-telemetry-commands/test-coverage.md",
+      "severity": "low",
+      "category": "skills",
+      "title": "Example config: Skill is missing observation hooks and feedback hooks",
+      "file": "commands/test-coverage.md",
+      "evidence": "observation hooks and feedback hooks",
+      "fingerprint": "skills-missing-telemetry-commands/test-coverage.md::commands/test-coverage.md::observation hooks and feedback hooks"
+    },
+    {
+      "id": "skills-missing-governance-commands/test-coverage.md",
+      "severity": "low",
+      "category": "skills",
+      "title": "Example config: Skill is missing version metadata and rollback metadata",
+      "file": "commands/test-coverage.md",
+      "evidence": "version metadata and rollback metadata",
+      "fingerprint": "skills-missing-governance-commands/test-coverage.md::commands/test-coverage.md::version metadata and rollback metadata"
+    }
+  ]
+}

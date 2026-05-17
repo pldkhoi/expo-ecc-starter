@@ -107,21 +107,22 @@ expo-ecc-starter/
 
 ## Scripts
 
-| Command                                                             | What it does                                                                   |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| `bun init`                                                          | Interactive: rename project, set bundle IDs, primary color, optional git reset |
-| `bun dev`                                                           | `expo start` — Metro on port 8081 (press `w`/`i`/`a`)                          |
-| `bun ios` / `bun android` / `bun web`                               | Platform-specific dev start                                                    |
-| `bun lint` / `bun lint:fix`                                         | ESLint (read-only / autofix)                                                   |
-| `bun format` / `bun format:check`                                   | Prettier (write / verify)                                                      |
-| `bun type-check`                                                    | `tsc --noEmit`                                                                 |
-| `bun test`                                                          | Jest watch mode                                                                |
-| `bun test:ci`                                                       | Jest with coverage (used by CI)                                                |
-| `bun test:coverage`                                                 | Jest with coverage, no CI flag                                                 |
-| `bun e2e:maestro`                                                   | Run all `.maestro/` flows                                                      |
-| `bun security:scan` / `bun security:scan:full` / `bun security:fix` | AgentShield (high-severity gate / full report / autofix)                       |
-| `bun run prebuild` / `bun run prebuild:clean`                       | Expo prebuild (generate ios/android)                                           |
-| `bun clean`                                                         | Wipe `.expo`, `dist`, `node_modules`, native folders, coverage                 |
+| Command                                                             | What it does                                                                         |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| `bun init`                                                          | Interactive: rename project, set bundle IDs, primary color, optional git reset       |
+| `bun dev`                                                           | `expo start` — Metro on port 8081 (press `w`/`i`/`a`)                                |
+| `bun ios` / `bun android` / `bun web`                               | Platform-specific dev start                                                          |
+| `bun lint` / `bun lint:fix`                                         | ESLint (read-only / autofix)                                                         |
+| `bun format` / `bun format:check`                                   | Prettier (write / verify)                                                            |
+| `bun type-check`                                                    | `tsc --noEmit`                                                                       |
+| `bun test`                                                          | Jest watch mode                                                                      |
+| `bun test:ci`                                                       | Jest with coverage (used by CI)                                                      |
+| `bun test:coverage`                                                 | Jest with coverage, no CI flag                                                       |
+| `bun e2e:maestro`                                                   | Run all `.maestro/` flows                                                            |
+| `bun security:scan` / `bun security:scan:full` / `bun security:fix` | AgentShield: regression gate vs `.agentshield/baseline.json` / full report / autofix |
+| `bun security:scan:update-baseline`                                 | Re-record the AgentShield baseline after a real fix                                  |
+| `bun run prebuild` / `bun run prebuild:clean`                       | Expo prebuild (generate ios/android)                                                 |
+| `bun clean`                                                         | Wipe `.expo`, `dist`, `node_modules`, native folders, coverage                       |
 
 When adding a dependency, use `bunx expo install <pkg>` (NOT `bun add <pkg>`) so Expo picks the SDK-compatible version.
 

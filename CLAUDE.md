@@ -64,8 +64,9 @@ bun type-check           # tsc --noEmit
 bun test                 # Jest watch
 bun test:ci              # Jest with coverage (used by CI)
 bun e2e:maestro          # Run all .maestro/ flows
-bun security:scan        # AgentShield scan, high-severity only (CI gate)
-bun security:scan:full   # AgentShield full report (info-level included)
+bun security:scan        # AgentShield gate vs .agentshield/baseline.json (CI)
+bun security:scan:full   # AgentShield full report (all severities)
+bun security:scan:update-baseline  # Re-record baseline after a real fix
 bun security:fix         # AgentShield auto-fix where supported
 bun run prebuild         # Expo prebuild (generates ios/ + android/)
 bun run prebuild:clean   # Prebuild --clean (wipes hand-edited native)
