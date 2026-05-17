@@ -4,6 +4,12 @@ All notable changes to this project are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/).
 
+## [0.3.1] - 2026-05-17
+
+### Fixed
+
+- **ci(security:scan)** — wrap the AgentShield invocation in `scripts/security-gate.sh` so that ecc-agentshield's unconditional exit code 2 on baselined CRITICAL findings is translated to exit 0 when the gate reports `Gate: PASSED — No regressions detected`. Real regressions (exit code 3) still fail the build. Root cause: `ecc-agentshield@1.4` exits 2 whenever `summary.critical > 0`, regardless of baseline status — and the project carries one false-positive CRITICAL (the `--no-verify` literal inside a `deny` rule in `.claude/settings.json`) that we keep deliberately as a security control.
+
 ## [0.3.0] - 2026-05-17
 
 ### Added
